@@ -16,4 +16,8 @@ public enum Suit {
     public String symbol() {
         return symbol;
     }
+
+    boolean isRed() {
+        return "♥♦".contains(symbol());
+    }
 }
