@@ -1,7 +1,5 @@
 package com.jitterted.ebp.blackjack;
 
-import java.util.List;
-
 public enum Suit {
     SPADES("♠"),
     DIAMONDS("♦"),
@@ -9,22 +7,10 @@ public enum Suit {
     CLUBS("♣")
     ;
 
-    static final List<String> SUITS = List.of("♠", "♦", "♥", "♣");
     private final String symbol;
 
     Suit(String symbol) {
         this.symbol = symbol;
-    }
-
-    // "Scaffolding" - temporary, will be deleted once refactoring done
-    @Deprecated
-    public static Suit from(String symbol) {
-        for (Suit suit : values()) {
-            if (suit.symbol.equals(symbol)) {
-                return suit;
-            }
-        }
-        return null;
     }
 
     public String symbol() {
