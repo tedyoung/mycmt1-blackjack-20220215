@@ -12,9 +12,12 @@ public class Wallet {
         return isEmpty;
     }
 
-
     public void addMoney(int amount) {
         isEmpty = false;
+    }
+
+    public int balance() {
+        return 0;
     }
 }
 
