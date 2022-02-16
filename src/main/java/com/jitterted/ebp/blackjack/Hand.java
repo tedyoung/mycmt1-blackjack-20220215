@@ -49,4 +49,20 @@ public class Hand {
                                 .collect(Collectors.joining(
                                        ansi().cursorUp(6).cursorRight(1).toString())));
     }
+
+    boolean isBusted() {
+        return value() > 21;
+    }
+
+    boolean shouldDealerHit() {
+        return value() <= 16;
+    }
+
+    boolean pushes(Hand dealerHand) {
+        return dealerHand.value() == value();
+    }
+
+    boolean beats(Hand dealerHand) {
+        return dealerHand.value() < value();
+    }
 }
