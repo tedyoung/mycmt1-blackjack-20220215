@@ -16,4 +16,14 @@ public class WalletTest {
                 .isTrue();
     }
 
+//    @Test
+//    public void newWalletWhenAddMoneyIsNotEmpty() throws Exception {
+//        Wallet wallet = new Wallet();
+//
+//        wallet.addMoney(1);
+//
+//        assertThat(wallet.isEmpty())
+//                .isFalse();
+//    }
+
 }
