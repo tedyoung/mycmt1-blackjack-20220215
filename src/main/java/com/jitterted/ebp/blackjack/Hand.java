@@ -17,6 +17,8 @@ public class Hand {
     }
 
     void drawCardFrom(Deck deck) {
+        // require Hand is "in progress" — still being played
+        // require not Busted
         cards.add(deck.draw());
     }
 
@@ -39,6 +41,7 @@ public class Hand {
         return handValue;
     }
 
+    // relates ONLY to Dealer
     Card faceUpCard() {
         return cards.get(0);
     }
@@ -54,15 +57,20 @@ public class Hand {
         return value() > 21;
     }
 
+    // relates ONLY to Dealer
     boolean shouldDealerHit() {
         return value() <= 16;
     }
 
+    // PROTOCOL: can't ask these questions until both hands are final
+
     boolean pushes(Hand dealerHand) {
+        // require Hand is final
         return dealerHand.value() == value();
     }
 
     boolean beats(Hand dealerHand) {
+        // require Hand is final
         return dealerHand.value() < value();
     }
 }
