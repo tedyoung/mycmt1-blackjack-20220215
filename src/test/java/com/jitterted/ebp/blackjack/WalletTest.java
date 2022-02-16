@@ -55,6 +55,16 @@ public class WalletTest {
                 .isEqualTo(10 + 5);
     }
 
+    @Test
+    public void addMoneyOfZeroThrowsException() throws Exception {
+        Wallet wallet = new Wallet();
+
+        assertThatThrownBy(() -> {
+            wallet.addMoney(0);
+        })
+          .isInstanceOf(IllegalArgumentException.class);
+    }
+
 }
 
 
