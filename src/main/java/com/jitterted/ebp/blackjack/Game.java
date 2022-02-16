@@ -13,6 +13,7 @@ public class Game {
 
     private final Hand dealerHand = new Hand();
     private final Hand playerHand = new Hand();
+    private int playerBalance = 0;
 
     public static void main(String[] args) {
         displayWelcomeScreen();
@@ -76,14 +77,19 @@ public class Game {
     private void displayOutcome(boolean playerBusted) {
         if (playerBusted) {
             System.out.println("You Busted, so you lose.  💸");
+            // playerLoses()
         } else if (dealerHand.isBusted()) {
             System.out.println("Dealer went BUST, Player wins! Yay for you!! 💵");
+            // playerWins()
                                                     // isBetterThan, beat, compareTo[technical]
         } else if (playerHand.beats(dealerHand)) {
+            // playerWins()
             System.out.println("You beat the Dealer! 💵");
         } else if (playerHand.pushes(dealerHand)) {         // method name ideas: isEqualValue, isTied, compareWith, isPush
+            // playerPushes()
             System.out.println("Push: You tie with the Dealer. 💸");
         } else {
+            // playerLoses()
             System.out.println("You lost to the Dealer. 💸");
         }
     }
@@ -172,5 +178,9 @@ public class Game {
         System.out.println("Player has: ");
         playerHand.display();
         System.out.println(" (" + playerHand.value() + ")");
+    }
+
+    public int playerBalance() {
+        return playerBalance;
     }
 }
