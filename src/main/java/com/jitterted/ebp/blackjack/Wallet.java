@@ -21,6 +21,9 @@ public class Wallet {
         return balance;
     }
 
+    // this command COULD throw an exception due to the (hidden?) STATE of object
+    // therefore, have a "can I do this?" Query method
+    // e.g.: boolean canBet(betAmount)?
     public void bet(int betAmount) {
         requireSufficientBalanceToBet(betAmount);
         balance -= betAmount;
