@@ -44,6 +44,17 @@ public class WalletTest {
                 .isEqualTo(7);
     }
 
+    @Test
+    public void newWalletAdd10AndAdd5ThenBalanceIs15() throws Exception {
+        Wallet wallet = new Wallet();
+
+        wallet.addMoney(10);
+        wallet.addMoney(5);
+
+        assertThat(wallet.balance())
+                .isEqualTo(10 + 5);
+    }
+
 }
 
 
